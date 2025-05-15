@@ -1,0 +1,25 @@
+{
+  "name": "ground-booking",
+  "version": "1.0.0",
+  "description": "a ground booking app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "ground",
+    "booking"
+  ],
+  "author": "Sanaf Ali",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.2",
+    "nodemon": "^3.1.10",
+    "zod": "^3.24.4"
+  }
+}
