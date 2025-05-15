@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const authController = require("../controllers/auth.controller");
 const validateData = require("../middlewares/validationMiddleware");
-const { userRegistrationSchema } = require("../schemas/user.schemas");
+const { userRegistrationSchema, userLoginSchema } = require("../schemas/user.schemas");
 
 const authRouter = Router();
 
@@ -13,10 +13,16 @@ const authRouter = Router();
 @/refresh
 */
 
-authRouter.get(
-  "/register",
-  validateData(userRegistrationSchema),
-  authController.registerUser
-);
+authRouter
+  .post(
+    "/register",
+    validateData(userRegistrationSchema),
+    authController.registerUser
+  )
+  .post(
+    "/login",
+    validateData(userLoginSchema),
+    authController.loginUser
+  );
 
 module.exports = authRouter;

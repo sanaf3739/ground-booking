@@ -16,13 +16,20 @@ const getUsers = async (req, res) => {
     });
   }
 };
-const getUser = async(req, res) => {
-  const user = await User.findById(req.params.id)
-  return res.status(200).json({
-    success: true,
-    message: "user fetched successfully",
-    user: user
-  })
+const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "user fetched successfully",
+      user: user,
+    });
+  } catch (error) {
+    res.status(200).json({
+      success: false,
+      message: "Internal Server Error!",
+    });
+  }
 };
 
 const updateUser = (req, res) => {
